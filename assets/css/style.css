@@ -102,14 +102,6 @@ body::before {
   -webkit-backdrop-filter: blur(28px) saturate(1.6);
   border-bottom: 1px solid var(--border);
   transition: background var(--transition), border-color var(--transition), box-shadow var(--transition);
-  [data-theme="light"] .navbar {
-  background: rgba(255,255,255,.85);
-  border-bottom: 1px solid rgba(0,0,0,.08);
-}
-
-[data-theme="light"] .navbar.scrolled {
-  background: rgba(255,255,255,.95);
-}
 }
 
 .navbar.scrolled {
@@ -1111,29 +1103,6 @@ body {
   box-shadow: 0 0 24px rgba(239, 68, 68, 0.18);
 }
 
-/*====================================
-      MOBILE
-    =====================================*/
-@media (max-width: 768px) {
-  .hero-container {
-    grid-template-columns: 1fr;
-    gap: 48px;
-    padding: 80px 24px;
-  }
-
-  .hero-right {
-    display: none;
-  }
-
-  .hero-sub {
-    max-width: 100%;
-  }
-
-  .hero-meta {
-    display: none;
-  }
-  
-}
 
 
 
@@ -2563,10 +2532,22 @@ body {
   }
 }
 
+
+/*====================================
+      MOBILE
+    =====================================*/
 @media (max-width: 768px) {
   .nav-links {
     display: none;
   }
+
+  .btn-audit-nav {
+    display: none !important;
+}
+
+.theme-toggle {
+    display: none !important;
+}
 
   .hamburger {
     display: flex;
@@ -2642,8 +2623,22 @@ body {
   }
 
   .nav-container {
-    padding: 0 20px;
-  }
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 16px;
+}
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+  gap: 10px;
+}
+ .nav-logo {
+  font-size: 1rem;
+  white-space: nowrap;
+}
 
   .acc-header {
     padding: 22px 20px;
@@ -2783,43 +2778,4 @@ body {
   --text: #FFFFFF;
   --muted: #8b8b9e;
 }
-
-/* LIGHT MODE */
-
-[data-theme="light"] {
-  --bg: #ffffff;
-  --bg-card: #f8fafc;
-  --bg-card2: #f1f5f9;
-
-  --text: #111827;
-
-  --muted: #64748b;
-  --muted-bright: #475569;
-
-  --border: rgba(0,0,0,0.08);
-  --border-blue: rgba(99,102,241,0.25);
-
-  --glow: rgba(99,102,241,0.08);
-
-  --shadow-card:
-      0 4px 20px rgba(0,0,0,0.08);
-
-  --shadow-hover:
-      0 10px 30px rgba(0,0,0,0.12);
-}
-
-
-[data-theme="light"] .problem-card,
-[data-theme="light"] .solution-card,
-[data-theme="light"] .system-card,
-[data-theme="light"] .acc-item,
-[data-theme="light"] .why-card,
-[data-theme="light"] .form-card {
-
-    background: #ffffff;
-
-    border-color:
-    rgba(0,0,0,.08);
-}
-
 

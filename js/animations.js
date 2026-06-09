@@ -5,6 +5,11 @@
  * Vanilla JS only. No GSAP, no jQuery.
  */
 
+document.documentElement.setAttribute(
+  "data-theme",
+  "dark"
+);
+
 (function () {
   "use strict";
 
@@ -385,21 +390,7 @@ if (osCanvas) osCanvas.style.transform = `translate(${currentX * 5}px, ${current
     });
   }
 
-  /* ─── Theme Toggle (decorative) ─────────────────────────────────────────── */
-  function initThemeToggle() {
-    const btn = document.getElementById("themeToggle");
-    if (!btn) return;
-    btn.addEventListener("click", () => {
-      btn.style.color = "#818cf8";
-      btn.style.borderColor = "rgba(99,102,241,0.45)";
-      btn.style.transform = "rotate(20deg) scale(1.1)";
-      setTimeout(() => {
-        btn.style.color = "";
-        btn.style.borderColor = "";
-        btn.style.transform = "";
-      }, 350);
-    });
-  }
+ 
 
   /* ─── Smooth Scroll for Anchor Links ────────────────────────────────────── */
   function initSmoothScroll() {
@@ -969,7 +960,6 @@ function initNetworkDiagram() {
     initCounters();
     initMarquee();
     initFAQ();
-    initThemeToggle();
     initNetworkDiagram();
     initSolutionAccordion();
     initSolutionFilters();
@@ -985,80 +975,3 @@ function initNetworkDiagram() {
   }
 })();
 
-
-
-/* THEME TOGGLE */
-
-const themeToggle =
-document.getElementById("themeToggle");
-
-if(themeToggle){
-
-    const savedTheme =
-    localStorage.getItem("theme");
-
-    if(savedTheme){
-        document.documentElement.setAttribute(
-            "data-theme",
-            savedTheme
-        );
-    }
-
-    updateThemeIcon();
-
-    themeToggle.addEventListener(
-        "click",
-        () => {
-
-            const current =
-            document.documentElement.getAttribute(
-                "data-theme"
-            );
-
-            const newTheme =
-            current === "light"
-            ? "dark"
-            : "light";
-
-            document.documentElement.setAttribute(
-                "data-theme",
-                newTheme
-            );
-
-            localStorage.setItem(
-                "theme",
-                newTheme
-            );
-
-            updateThemeIcon();
-        }
-    );
-
-    function updateThemeIcon(){
-
-        const current =
-        document.documentElement.getAttribute(
-            "data-theme"
-        );
-
-        themeToggle.innerHTML =
-        current === "light"
-        ? "☀️"
-        : "🌙";
-    }
-}
-
-if(!localStorage.getItem("theme")){
-
-    const prefersDark =
-    window.matchMedia(
-      "(prefers-color-scheme: dark)"
-    ).matches;
-
-    document.documentElement.setAttribute(
-      "data-theme",
-      prefersDark
-      ? "dark"
-      : "light"
-    );
-}
