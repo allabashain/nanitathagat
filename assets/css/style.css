@@ -146,9 +146,9 @@ body::before {
 }
 
 .nav-link {
-  font-size: 0.99rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-size: 1rem;
+  font-weight: 700;
+  color: rgba(255,255,255,0.85);
   position: relative;
   padding: 7px 15px;
   border-radius: var(--radius-sm);
@@ -452,10 +452,19 @@ body.menu-open {
   letter-spacing: -0.04em;
   margin-bottom: 24px;
   color: #fff;
+  text-shadow:
+      0 0 20px rgba(255,255,255,0.15),
+      0 0 40px rgba(99,102,241,0.25);
 }
 
 .gradient-text {
-  background: linear-gradient(135deg, #e0e7ff 0%, #a5b4fc 35%, #c7d2fe 65%, #f0f0ff 100%);
+ background: linear-gradient(
+    135deg,
+    #ffffff,
+    #818cf8,
+    #6366f1,
+    #ffffff
+  );
   background-size: 300%;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -475,11 +484,11 @@ body.menu-open {
 
 .hero-sub {
   font-size: 1.025rem;
-  color: var(--muted);
+  color: rgba(255,255,255,0.78);
   line-height: 1.72;
   margin-bottom: 36px;
   max-width: 480px;
-  font-weight: 400;
+  font-weight: 500;
 }
 
 .hero-btns {
@@ -521,8 +530,8 @@ body.menu-open {
 
 .hero-stat-label {
   font-size: 0.68rem;
-  font-weight: 500;
-  color: var(--muted);
+  font-weight: 600;
+  color: rgba(255,255,255,0.75);
   letter-spacing: 0.04em;
   text-transform: uppercase;
 }
@@ -2779,3 +2788,34 @@ body {
   --muted: #8b8b9e;
 }
 
+@media (max-width: 768px) {
+
+  .hero-heading{
+      font-size: 3rem;
+      font-weight: 900;
+      line-height: 1.05;
+  }
+
+  .hero-sub{
+      font-size: 1rem;
+      font-weight: 500;
+      color: rgba(255,255,255,0.85);
+  }
+
+  .nav-link,
+  .mobile-link{
+      font-size: 1rem;
+      font-weight: 700;
+      color: #fff;
+  }
+
+  .hero-stat-value{
+      font-size: 1.3rem;
+      font-weight: 800;
+  }
+
+  .hero-stat-label{
+      color: rgba(255,255,255,0.75);
+  }
+
+}
